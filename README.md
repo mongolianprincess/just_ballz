@@ -1,11 +1,10 @@
-[![Stories in Ready](https://badge.waffle.io/ALRW/just_ballz.png?label=ready&title=Ready)](https://waffle.io/ALRW/just_ballz)
 JUST BALLZ
 ============
 
 Continuous Integration
 --------------------------
-Master:
-Development:
+Master: ![Master branch](https://travis-ci.org/ALRW/just_ballz.svg?branch=master)
+Development: ![Develop branch](https://travis-ci.org/ALRW/just_ballz.svg?branch=develop)
 
 User Stories
 ----------------
@@ -32,4 +31,22 @@ User Stories
     so that I have good control of my robot
     I want to be able to change the direction of travel of my robot with a gesture of my hand.
 
-###### First Addition al feature - Obstacle Course Game.
+###### First Additional feature - Obstacle Course Game.
+
+2.1 As a robot obsessed user,
+    so that I have good control of my robot,
+    I want to be able to control the speed of my robot with a gesture of my hand.
+
+2.2 As a robot obsessed user,
+    so that I can feel fabulous,
+    I would like my robot to do a victory dance.
+
+2.3As a robot obsessed user,
+    so that I can have some fun,
+    I would like to be able to play a game with my robot.
+
+Waffle Metrics
+--------------
+[![Stories in Ready](https://badge.waffle.io/ALRW/just_ballz.png?label=ready&title=Ready)](https://waffle.io/ALRW/just_ballz)
+
+[![Throughput Graph](https://graphs.waffle.io/ALRW/just_ballz/throughput.svg)](https://waffle.io/ALRW/just_ballz/metrics)
