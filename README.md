@@ -10,7 +10,7 @@ User Stories
 ----------------
 
 ###### MVP - Gesture based movement of a robot.
-
+```
 1.1 As a robot obsessed user,
     so that I can command my robot
     I want to be able to establish a connection between my leap-motion and my robot
@@ -30,9 +30,9 @@ User Stories
 1.5 As a robot obsessed user,
     so that I have good control of my robot
     I want to be able to change the direction of travel of my robot with a gesture of my hand.
-
+```
 ###### First Additional feature - Obstacle Course Game.
-
+```
 2.1 As a robot obsessed user,
     so that I have good control of my robot,
     I want to be able to control the speed of my robot with a gesture of my hand.
@@ -44,7 +44,7 @@ User Stories
 2.3As a robot obsessed user,
     so that I can have some fun,
     I would like to be able to play a game with my robot.
-
+```
 Waffle Metrics
 --------------
 [![Stories in Ready](https://badge.waffle.io/ALRW/just_ballz.png?label=ready&title=Ready)](https://waffle.io/ALRW/just_ballz)
