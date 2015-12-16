@@ -10,8 +10,9 @@ function concatData(id, data){
 Leap.loop(controllerOptions, function(frame) {
   // framestring = concatData("Frame Number", frame.id);
 
-  framestring = concatData("Grab Strength", frame.hands[0].grabStrength.toPrecision(2));
-  console.log(framestring);
+  framestring =  frame.hands[0].grabStrength.toPrecision(2);
 
-
+    if (framestring > 0.9) {
+      console.log(("stop"));
+    }
 });
