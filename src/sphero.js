@@ -1,22 +1,26 @@
-function Player() {
+"use strict";
+
+var orb = sphero(process.env.PORT);
+
+function SpheroCommands() {
 }
-Player.prototype.play = function(song) {
-  this.currentlyPlayingSong = song;
-  this.isPlaying = true;
+
+SpheroCommands.prototype.stopSphero = function() {
+  orb.color('blue');
+  orb.stop();
 };
 
-Player.prototype.pause = function() {
-  this.isPlaying = false;
+SpheroCommands.prototype.goSphero = function() {
+  orb.color('magenta');
+  orb.roll(50,0,1);
 };
 
-Player.prototype.resume = function() {
-  if (this.isPlaying) {
-    throw new Error("song is already playing");
-  }
-
-  this.isPlaying = true;
+SpheroCommands.prototype.leftSphero = function() {
+  orb.color('red');
+  orb.roll(50,270,1);
 };
 
-Player.prototype.makeFavorite = function() {
-  this.currentlyPlayingSong.persistFavoriteStatus(true);
+SpheroCommands.prototype.rightSphero = function() {
+  orb.color('yellow');
+  orb.roll(50,90,1);
 };
