@@ -1,5 +1,8 @@
 describe('Leap Motion:', function(){
-  it('exits', function(){
-    expect(LeapMotion).toBeDefined();
+  beforeEach(function() {
+    var Leap;
+  });
+  it('exists', function(){
+    expect(Leap).toBeTruthy();
   });
 });
