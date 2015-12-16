@@ -1,8 +1,8 @@
 describe('Leap Motion:', function(){
-  beforeEach(function() {
-    var Leap;
-  });
-  it('exists', function(){
-    expect(Leap).toBeTruthy();
+
+  describe('#concatData', function(){
+    it('simplifies the data output from the leapmotion frame', function(){
+        expect(concatData('Hand', 'right')).toEqual('Hand: right');
+    });
   });
 });
