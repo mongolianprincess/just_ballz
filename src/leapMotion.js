@@ -23,8 +23,9 @@ Leap.loop(controllerOptions, function(frame) {
         go();
       }
   }
-
 });
+
+
 // placeholder function
 function go(){
   orb.color("green");
