@@ -18,6 +18,7 @@
   "homepage": "https://github.com/ALRW/just_ballz#readme",
   "dependencies": {
     "leapjs": "^0.6.4",
-    "leapjs-plugins": "^0.1.11"
+    "leapjs-plugins": "^0.1.11",
+    "sphero": "^0.4.1"
   }
 }

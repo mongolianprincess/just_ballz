@@ -1,18 +1,33 @@
 var Leap = require("leapjs");
-var framestring;
-var hand;
+var Sphero = require("sphero");
+var orb = Sphero("/dev/tty.Sphero-OPW-AMP-SPP", { timeout: 300});
+var framestring, commandString, hand;
 var controllerOptions = {enableGestures: true};
 
 function concatData(id, data){
   return id + ": " + data;
 }
 
+
+console.log("out of leap loop");
 Leap.loop(controllerOptions, function(frame) {
-  // framestring = concatData("Frame Number", frame.id);
+  if(frame.hands[0] != null){
+    framestring =  frame.hands[0].grabStrength;
+      if (framestring > 0.9 && commandString !== "Stop") {
+        commandString = "Stop";
+        stop();
+      } else if(framestring < 0.1 && commandString !== "Go") {
+        commandString = "Go";
+        go();
+      }
+  }
 
-  framestring =  frame.hands[0].grabStrength.toPrecision(2);
-
-    if (framestring > 0.9) {
-      console.log(("stop"));
-    }
 });
+
+function go(){
+  console.log("Go");
+}
+
+function stop(){
+  console.log("Stop");
+}
