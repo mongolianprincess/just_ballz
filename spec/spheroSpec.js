@@ -1,14 +1,14 @@
 describe("Sphero", function() {
-  var sphero;
+  var ball;
 
   spyOn(Sphero, 'color', 'roll');
 
   beforeEach(function() {
-    sphero = new SpheroCommands();
+    ball = new SpheroCommands();
     });
 
     it("should #stop a sphero", function() {
-      sphero.stopSphero();
-      expect(sphero.color).toHaveBeenCalled();
+      ball.stopSphero();
+      expect(Sphero.color).toHaveBeenCalled();
   });
 });
