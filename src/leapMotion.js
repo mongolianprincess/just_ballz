@@ -7,9 +7,11 @@ var controllerOptions = {enableGestures: true};
 function concatData(id, data){
   return id + ": " + data;
 }
+// wrapper connection function
+orb.connect(function(){
+orb.color("blue");
 
-
-console.log("out of leap loop");
+// Leap motioin loop
 Leap.loop(controllerOptions, function(frame) {
   if(frame.hands[0] != null){
     framestring =  frame.hands[0].grabStrength;
@@ -23,11 +25,14 @@ Leap.loop(controllerOptions, function(frame) {
   }
 
 });
-
+// placeholder function
 function go(){
-  console.log("Go");
+  orb.color("green");
+  orb.roll(50, 0, 1);
 }
-
+// placeholder
 function stop(){
-  console.log("Stop");
+  orb.color('magenta');
+  orb.stop();
 }
+});
