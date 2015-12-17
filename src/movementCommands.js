@@ -16,6 +16,11 @@ function MovementCommands (orb){
     MEDIUM_LEFT: 270,
     SMALL_LEFT: 315
   };
+  this.speeds = {
+    SLOW: 25,
+    MEDIUM: 50,
+    FAST: 100
+  };
   this._setColor = function(color) {
     this.orb.color(color);
   };

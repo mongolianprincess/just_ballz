@@ -28,6 +28,13 @@ describe("The movement commands for Sphero", function() {
         SMALL_LEFT: 315
       });
     });
+    it('has speed settings', function(){
+      expect(commands.speeds).toEqual({
+        SLOW: 25,
+        MEDIUM: 50,
+        FAST: 100
+      });
+    });
   });
 
   describe('#stop', function(){
