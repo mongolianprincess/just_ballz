@@ -1,18 +1,13 @@
 module.exports = function(grunt) {
-  grunt.registerTask('travis', [
-        'jshint','jasmine',
-  ]);
-  grunt.config.init({
-    jasmine: {
-            components: {
-              src: [
-              'components/*js'
-              ],
-              options: {
-                specs: 'tests/spec/*Spec.js',
-                keepRunner : true,
-                //helpers: 'test/spec/*.js'
-              }
-            }
-}});
+       'use strict';
+       // Project configuration.
+       grunt.initConfig({
+               jasmine : {
+                       src : 'src/*.js',
+                       options : {
+                               specs : 'spec/*.js'
+                       }
+               }
+       });
+       grunt.loadNpmTasks('grunt-contrib-jasmine');
 };

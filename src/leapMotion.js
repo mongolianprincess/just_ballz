@@ -11,7 +11,7 @@ function concatData(id, data){
 orb.connect(function(){
 orb.color("blue");
 
-// Leap motioin loop
+// Leap motion loop
 Leap.loop(controllerOptions, function(frame) {
   if(frame.hands[0] != null){
     framestring =  frame.hands[0].grabStrength;
