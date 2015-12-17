@@ -1,5 +1,6 @@
 describe("The movement commands for Sphero", function() {
   var commands, orb;
+  var DEFAULT_SPEED = 50;
 
   beforeEach(function() {
     orb = {
@@ -25,16 +26,16 @@ describe("The movement commands for Sphero", function() {
     });
   });
 
-  describe('#go',function(){
+  describe('#forward',function(){
     it('rolls the ball forward', function(){
       spyOn(orb, 'roll');
-      commands.go();
+      commands.roll(DEFAULT_SPEED, commands.directions.FORWARD);
       expect(orb.roll).toHaveBeenCalledWith(50, 0);
     });
 
     it('changes color when in motion',function(){
       spyOn(orb, 'color');
-      commands.go();
+      commands.roll(DEFAULT_SPEED, commands.directions.FORWARD);
       expect(orb.color).toHaveBeenCalledWith('blue');
     });
   });
