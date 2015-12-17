@@ -13,5 +13,6 @@ MovementCommands.prototype = {
   },
   go: function(){
     this.orb.roll(50, 0);
+    this.orb.color("blue");
   }
 };

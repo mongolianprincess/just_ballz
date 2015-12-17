@@ -34,7 +34,7 @@ describe("The movement commands for Sphero", function() {
 
     it('changes color when in motion',function(){
       spyOn(orb, 'color');
-      commands.stop();
+      commands.go();
       expect(orb.color).toHaveBeenCalledWith('blue');
     });
   });
