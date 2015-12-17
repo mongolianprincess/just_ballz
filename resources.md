@@ -24,3 +24,6 @@
 https://developer.leapmotion.com/documentation/javascript/devguide/Sample_Tutorial.html
 - Leap js example code: 
 https://github.com/leapmotion/leapjs/tree/master/examples
+
+###Git ignore global
+- https://help.github.com/articles/ignoring-files/
