@@ -9,5 +9,6 @@ function MovementCommands (orb){
 MovementCommands.prototype = {
   stop: function() {
     this.orb.stop();
+    this.orb.color("red");
     }
   };
