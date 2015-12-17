@@ -11,6 +11,25 @@ describe("The movement commands for Sphero", function() {
     commands = new MovementCommands (orb);
   });
 
+  describe('MovementCommands instantiation', function(){
+    it('has a default speed', function() {
+      expect(commands.DEFAULT_SPEED).toEqual(50);
+    });
+
+    it('has directions',function() {
+      expect(commands.directions).toEqual({
+        FORWARD: 0,
+        SMALL_RIGHT: 45,
+        MEDIUM_RIGHT: 90,
+        LARGE_RIGHT: 135,
+        BACKWARD: 180,
+        LARGE_LEFT: 225,
+        MEDIUM_LEFT: 270,
+        SMALL_LEFT: 315
+      });
+    });
+  });
+
   describe('#stop', function(){
 
     it("should stop a sphero", function() {

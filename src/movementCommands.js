@@ -16,15 +16,18 @@ function MovementCommands (orb){
     MEDIUM_LEFT: 270,
     SMALL_LEFT: 315
   };
+  this._setColor = function(color) {
+    this.orb.color(color);
+  };
 }
 
 MovementCommands.prototype = {
   stop: function() {
     this.orb.stop();
-    this.orb.color("red");
+    this._setColor('red');
   },
   roll: function(speed, direction){
     this.orb.roll(this.DEFAULT_SPEED, direction);
-    this.orb.color("blue");
-  }
+    this._setColor('blue');
+  },
 };
