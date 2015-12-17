@@ -1,14 +1,23 @@
-describe("Sphero", function() {
-  var ball;
-
-  spyOn(Sphero, 'color', 'roll');
+describe("The movement commands for Sphero", function() {
+  var commands, orb;
 
   beforeEach(function() {
-    ball = new SpheroCommands();
+    orb = {
+      stop: function(){}
+    };
+    commands = new MovementCommands(orb);
+  });
+
+    describe('#stop', function(){
+
+    it("should stop a sphero", function() {
+      spyOn(orb, 'stop');
+      commands.halt();
+      expect(orb.stop).toHaveBeenCalled();
     });
 
-    it("should #stop a sphero", function() {
-      ball.stopSphero();
-      expect(Sphero.color).toHaveBeenCalled();
+    it("it should change color when it has stopped", function(){
+
+    });
   });
 });
