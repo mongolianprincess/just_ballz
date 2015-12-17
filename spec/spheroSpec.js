@@ -5,7 +5,7 @@ describe("The movement commands for Sphero", function() {
     orb = {
       stop: function(){},
       color: function(color){},
-      go: function(speed, heading){}
+      roll: function(speed, heading){}
     };
     commands = new MovementCommands (orb);
   });
@@ -18,7 +18,7 @@ describe("The movement commands for Sphero", function() {
       expect(orb.stop).toHaveBeenCalled();
     });
 
-    it("it should change color when it has stopped", function(){
+    it("changes color when it has stopped", function(){
       spyOn(orb, 'color');
       commands.stop();
       expect(orb.color).toHaveBeenCalledWith('red');
@@ -27,9 +27,15 @@ describe("The movement commands for Sphero", function() {
 
   describe('#go',function(){
     it('rolls the ball forward', function(){
-      spyOn(orb, 'go');
+      spyOn(orb, 'roll');
       commands.go();
-      expect(orb.roll).toHaveBeenCalledWith('50, 0');
+      expect(orb.roll).toHaveBeenCalledWith(50, 0);
+    });
+
+    it('changes color when in motion',function(){
+      spyOn(orb, 'color');
+      commands.stop();
+      expect(orb.color).toHaveBeenCalledWith('blue');
     });
   });
 });
