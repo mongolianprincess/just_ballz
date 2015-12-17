@@ -1,5 +1,8 @@
 describe('Leap Motion:', function(){
-  it('exits', function(){
-    expect(LeapMotion).toBeDefined();
+
+  describe('#concatData', function(){
+    it('simplifies the data output from the leapmotion frame', function(){
+        expect(concatData('Hand', 'right')).toEqual('Hand: right');
+    });
   });
 });
