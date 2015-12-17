@@ -1,10 +1,13 @@
 "use strict";
-var sphero = require("../");
-var orb = sphero(process.env.PORT);
+// var sphero = require("../");
+var orb;
 
 function MovementCommands (orb){
   this.orb = orb;
-  this.halt = function(){
-    this.orb.stop();
-  };
 }
+
+MovementCommands.prototype = {
+  stop: function() {
+    this.orb.stop();
+    }
+  };
