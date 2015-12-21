@@ -1,38 +1,28 @@
-"use strict";
-// var sphero = require("../");
-var orb, directions;
 
+if (lefthand.pinchStrength > 0.9) {
 
-function MovementCommands (orb){
-  this.orb = orb;
-  this.DEFAULT_SPEED = 50;
-  this.directions = {
-    FORWARD: 0,
-    SMALL_RIGHT: 45,
-    MEDIUM_RIGHT: 90,
-    LARGE_RIGHT: 135,
-    BACKWARD: 180,
-    LARGE_LEFT: 225,
-    MEDIUM_LEFT: 270,
-    SMALL_LEFT: 315
-  };
-  this.speeds = {
-    SLOW: 25,
-    MEDIUM: 50,
-    FAST: 100
-  };
-  this._setColor = function(color) {
-    this.orb.color(color);
-  };
+  while (lefthand.pinchStrength > 0.9)
+
+    orb.setBackLed(255);
+
+    if (righthand.handroll < -0.7) { //spin left incrementally by 5degrees
+      heading += 5;
+      orb.roll(0, heading);
+    }
+
+    if (righthand.handroll > 0.65) { //spin right decrementally by 5degrees
+      heading -= 5;
+      orb.roll(0, heading);
+    }
+
+  orb.setBackLed(0);
+
 }
 
-MovementCommands.prototype = {
-  stop: function() {
-    this.orb.stop();
-    this._setColor('red');
-  },
-  roll: function(speed, direction){
-    this.orb.roll(this.DEFAULT_SPEED, direction);
-    this._setColor('blue');
-  },
-};
+if (lefthand.pitch > 10 ) {
+  speed += 1;
+}
+
+if (lefthand.pitch < -10 ) {
+  speed -= 1;
+}
