@@ -1,7 +1,8 @@
 var Leap = require("leapjs");
 var Sphero = require("sphero");
-var orb = Sphero("/dev/tty.Sphero-RGO-AMP-SPP", { timeout: 300});
+var orb = Sphero("/dev/tty.Sphero-RGR-AMP-SPP", { timeout: 300});
 var controller = new Leap.Controller();
+var counter = 0;
 
 orb.connect(listen);
 
@@ -14,10 +15,10 @@ function handleRight(hand) {
   if (x > -40 && x < 30 && z > -20 && z < 30) {
     orb.roll(0,0);
   } else {
-    if (x < 0 && z < 0) { orb.roll(60, (360 - arctan)); }
-    if (x < 0 && z > 0) { orb.roll(60, (180 + arctan)); }
-    if (x > 0 && z > 0) { orb.roll(60, (180 - arctan)); }
-    if (x > 0 && z < 0) { orb.roll(60, arctan); }
+    if (x < 0 && z < 0) { orb.roll(80, (360 - arctan)); }
+    if (x < 0 && z > 0) { orb.roll(80, (180 + arctan)); }
+    if (x > 0 && z > 0) { orb.roll(80, (180 - arctan)); }
+    if (x > 0 && z < 0) { orb.roll(80, arctan); }
   }
 
   if (hand.grabStrength > 0.9) {
@@ -26,11 +27,14 @@ function handleRight(hand) {
       console.log("Now disconnected from Sphero");
     });
   }
+  document.getElementById('heading').innerHTML = arctan;
+  document.getElementById('counter').innerHTML = counter;
+
 }
 
 function listen() {
 
-  orb.color("peru");
+  orb.color("purple");
 
   console.log("Start Calibration");
   orb.setBackLed(255);
@@ -50,9 +54,11 @@ function listen() {
   orb.detectCollisions();
   console.log("collision detection system activated");
 
-  orb.on("collision", function(data) {
+  orb.on("collision", function() {
+    counter += 1;
+    console.log(counter);
     console.log("collision detected");
-    console.log("  data:", data);
+    // console.log("  data:", data);
 
     // orb.color("red");
     //
