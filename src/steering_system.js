@@ -25,7 +25,7 @@ function handleRight(hand) {
     orb.disconnect(function() {
       console.log("Now disconnected from Sphero");
     });
-  };
+  }
 }
 
 function listen() {
