@@ -21,6 +21,7 @@
     "keypress": "^0.2.1",
     "leapjs": "^0.6.4",
     "leapjs-plugins": "^0.1.11",
+    "pusher": "^1.0.6",
     "sphero": "^0.4.1"
   }
 }
