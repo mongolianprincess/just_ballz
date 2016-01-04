@@ -1,0 +1,2 @@
+justBallz.controller('JustBallzController',[function(){
+}]);
