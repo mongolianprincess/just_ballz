@@ -1,8 +1,9 @@
 var Leap = require("leapjs");
 var Sphero = require("sphero");
-var orb = Sphero("/dev/tty.Sphero-RGR-AMP-SPP", { timeout: 300});
+var orb = Sphero("/dev/tty.Sphero-RGO-AMP-SPP", { timeout: 300});
 var controller = new Leap.Controller();
 var counter = 0;
+var colliding = false;
 
 orb.connect(listen);
 
@@ -27,8 +28,6 @@ function handleRight(hand) {
       console.log("Now disconnected from Sphero");
     });
   }
-  document.getElementById('heading').innerHTML = arctan;
-  document.getElementById('counter').innerHTML = counter;
 
 }
 
@@ -38,16 +37,13 @@ function listen() {
 
   console.log("Start Calibration");
   orb.setBackLed(255);
-  orb.setStabilization(0, function(err, data) {
-    console.log(err || "data ");
-  });
+  orb.setStabilization(0);
 
   setTimeout(function() {
     orb.setHeading(0);
     orb.setBackLed(0);
-    orb.setStabilization(1, function(err, data) {
-      console.log(err || "data ");
-    });
+    orb.setStabilization(1);
+
     console.log("Finish Calibration");
   }, 10000);
 
@@ -55,12 +51,18 @@ function listen() {
   console.log("collision detection system activated");
 
   orb.on("collision", function() {
+    colliding = !colliding;
     counter += 1;
     console.log(counter);
     console.log("collision detected");
     // console.log("  data:", data);
 
-    // orb.color("red");
+    if (colliding) {
+      orb.color("red");
+    } else {
+      orb.color("purple");
+    }
+
     //
     // var opts = {
     //   lmode: 0x01,
@@ -74,8 +76,8 @@ function listen() {
     // });
     //
     // setTimeout(function() {
-    //   orb.color("green");
-    // }, 1000);
+    //   orb.color("purple");
+    // }, 200);
     //
     // orb.setStabilization(1, function(err, data) {
     //   console.log(err || "data: " + data);
