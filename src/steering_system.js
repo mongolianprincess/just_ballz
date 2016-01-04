@@ -11,7 +11,7 @@ function handleRight(hand) {
   var arctan = (Math.atan(Math.abs(x)/Math.abs(z))*180/Math.PI);
   console.log([x,z]);
 
-  if (x > -40 && x < 30 && z > -10 && z < 20) {
+  if (x > -40 && x < 30 && z > -20 && z < 30) {
     orb.roll(0,0);
   } else {
     if (x < 0 && z < 0) { orb.roll(60, (360 - arctan)); }
