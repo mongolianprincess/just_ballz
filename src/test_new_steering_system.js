@@ -5,7 +5,6 @@ var controller = new Leap.Controller();
 
 orb.connect(listen);
 
-
 function handleRight(hand) {
   var x = hand.palmPosition[0];
   var z = hand.palmPosition[2];
@@ -20,7 +19,10 @@ function handleRight(hand) {
     if (x > 0 && z > 0) { orb.roll(60, (180 - arctan)); }
     if (x > 0 && z < 0) { orb.roll(60, arctan); }
   }
-
+  // add a boost mode with grabStrength? to be tested.
+  // orb.boost(1, function(err, data) {
+  //   console.log(err || "data: " + data);
+  // }
 }
 
 function listen() {
@@ -33,6 +35,7 @@ function listen() {
         hand = frame.hands[i];
         if(hand){
           if (hand.type == 'right') {
+            console.log(frame);
             handleRight(hand);
           }
         }
@@ -53,34 +56,34 @@ function listen() {
   controller.connect();
   console.log('waiting for the leap motion to connect');
 
-  orb.detectCollisions();
-
-  orb.on("collision", function(data) {
-    console.log("collision detected");
-    console.log("  data:", data);
-
-    orb.color("red");
-
-    var opts = {
-      lmode: 0x01,
-      lpower: 180,
-      rmode: 0x01,
-      rpower: 180
-    };
-
-    orb.setRawMotors(opts, function(err, data) {
-      console.log(err || "data: " + data);
-    });
-
-    setTimeout(function() {
-      orb.color("green");
-    }, 1000);
-
-    orb.setStabilization(1, function(err, data) {
-      console.log(err || "data: " + data);
-    });
-
-  });
+  // orb.detectCollisions();
+  //
+  // orb.on("collision", function(data) {
+  //   console.log("collision detected");
+  //   console.log("  data:", data);
+  //
+  //   orb.color("red");
+  //
+  //   var opts = {
+  //     lmode: 0x01,
+  //     lpower: 180,
+  //     rmode: 0x01,
+  //     rpower: 180
+  //   };
+  //
+  //   orb.setRawMotors(opts, function(err, data) {
+  //     console.log(err || "data: " + data);
+  //   });
+  //
+  //   setTimeout(function() {
+  //     orb.color("green");
+  //   }, 1000);
+  //
+  //   orb.setStabilization(1, function(err, data) {
+  //     console.log(err || "data: " + data);
+  //   });
+  //
+  // });
 
 
 }
