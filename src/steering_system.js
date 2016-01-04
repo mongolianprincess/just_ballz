@@ -30,21 +30,52 @@ function handleRight(hand) {
 
 function listen() {
 
+  orb.color("peru");
+
   console.log("Start Calibration");
-  orb.setBackLed(127);
+  orb.setBackLed(255);
   orb.setStabilization(0, function(err, data) {
-    console.log(err || "data " + data);
+    console.log(err || "data ");
   });
 
   setTimeout(function() {
     orb.setHeading(0);
     orb.setBackLed(0);
     orb.setStabilization(1, function(err, data) {
-      console.log(err || "data " + data);
+      console.log(err || "data ");
     });
     console.log("Finish Calibration");
   }, 10000);
 
+  orb.detectCollisions();
+  console.log("collision detection system activated");
+
+  orb.on("collision", function(data) {
+    console.log("collision detected");
+    console.log("  data:", data);
+
+    // orb.color("red");
+    //
+    // var opts = {
+    //   lmode: 0x01,
+    //   lpower: 180,
+    //   rmode: 0x01,
+    //   rpower: 180
+    // };
+    //
+    // orb.setRawMotors(opts, function(err, data) {
+    //   console.log(err || "data: " + data);
+    // });
+    //
+    // setTimeout(function() {
+    //   orb.color("green");
+    // }, 1000);
+    //
+    // orb.setStabilization(1, function(err, data) {
+    //   console.log(err || "data: " + data);
+    // });
+
+  });
 
   controller.on('connect', function() {
     console.log('connected to leap motion');
@@ -54,7 +85,6 @@ function listen() {
         hand = frame.hands[i];
         if(hand){
           if (hand.type == 'right') {
-            console.log(frame);
             handleRight(hand);
           }
         }
