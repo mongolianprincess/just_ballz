@@ -3,7 +3,7 @@
 p#arrow1 img{ /* 3rd set of icons. Rotate them -360deg onmouseover ONLY. Note where the "transition prop is added */
 }
 
-p#arrow1 img:{
+p#arrow1 img:hover{
 -moz-transition: all 0.5s ease-in-out;
 -webkit-transition: all 0.5s ease-in-out;
 -o-transition: all 0.5s ease-in-out;
