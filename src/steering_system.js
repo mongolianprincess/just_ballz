@@ -11,7 +11,7 @@ function handleRight(hand) {
   var arctan = (Math.atan(Math.abs(x)/Math.abs(z))*180/Math.PI);
   console.log([x,z]);
 
-  if (x > -40 && x < 30 && z > -10 && z < 20) {
+  if (x > -40 && x < 30 && z > -20 && z < 30) {
     orb.roll(0,0);
   } else {
     if (x < 0 && z < 0) { orb.roll(60, (360 - arctan)); }
@@ -19,9 +19,17 @@ function handleRight(hand) {
     if (x > 0 && z > 0) { orb.roll(60, (180 - arctan)); }
     if (x > 0 && z < 0) { orb.roll(60, arctan); }
   }
+
+  if (hand.grabStrength > 0.9) {
+    orb.roll(0,0);
+    orb.disconnect(function() {
+      console.log("Now disconnected from Sphero");
+    });
+  };
 }
 
 function listen() {
+
   console.log("Start Calibration");
   orb.setBackLed(127);
   orb.setStabilization(0, function(err, data) {
