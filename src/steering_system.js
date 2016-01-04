@@ -19,9 +19,32 @@ function handleRight(hand) {
     if (x > 0 && z > 0) { orb.roll(60, (180 - arctan)); }
     if (x > 0 && z < 0) { orb.roll(60, arctan); }
   }
+
+  if (hand.grabStrength > 0.9) {
+    orb.roll(0,0);
+    orb.disconnect(function() {
+      console.log("Now disconnected from Sphero");
+    });
+  };
 }
 
 function listen() {
+
+  console.log("Start Calibration");
+  orb.setBackLed(127);
+  orb.setStabilization(0, function(err, data) {
+    console.log(err || "data " + data);
+  });
+
+  setTimeout(function() {
+    orb.setHeading(0);
+    orb.setBackLed(0);
+    orb.setStabilization(1, function(err, data) {
+      console.log(err || "data " + data);
+    });
+    console.log("Finish Calibration");
+  }, 10000);
+
 
   controller.on('connect', function() {
     console.log('connected to leap motion');
