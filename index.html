@@ -12,22 +12,24 @@
   <section ng-init="viewPane = 1">
   <div ng-show="viewPane === 1">
     <form>
-      <input type="text">
-      <button ng-click="connect()">Connect to your Sphero</button>
-      <h1 ng-style="{'-webkit-transform': heading}">Hello World</h1>
-      <h2>{{heading}}</h2>
+      <input type="text" ng-model="name">
+      <button ng-click="submit()">Connect to your Sphero</button>
     </form>
   </div>
 
   <div ng-show="viewPane === 2">
+    <h1>Welcome {{orbName}}!</h1>
+    <button ng-click="connect()">Connect to your Sphero</button>
+  </div>
+
+  <div ng-show="viewPane === 3">
     <h1>Connecting to your sphero please place your right hand over the LeapMotion</h1>
     <button ng-click="connected()">Button to be Deleted</button>
   </div>
 
-  <div ng-show="viewPane === 3">
+  <div ng-show="viewPane === 4">
     <h1>Your sphero is connected</h1>
     <button ng-click="disconnect()">Button to be Deleted</button>
-
   </div>
 
   </section>
