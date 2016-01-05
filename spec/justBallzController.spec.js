@@ -10,9 +10,18 @@ describe('JustBallz Controller', function(){
       console.log("hello");
     }));
 
-    it('it has a connect function',function(){
-      expect(scope.connect).toBeDefined();
+    describe('#connect', function() {
+
+      it('it has a connect function',function(){
+        expect(scope.connect).toBeDefined();
+      });
+
+      it('changes the view variable', function() {
+        scope.connect();
+        expect(scope.viewPane).toEqual(2);
+      });
     });
+
 
     it('it has a connected function',function(){
       expect(scope.connected).toBeDefined();
@@ -21,6 +30,7 @@ describe('JustBallz Controller', function(){
     it('it has a disconnect function', function(){
       expect(scope.disconnect).toBeDefined();
     });
+
 
   });
 });
