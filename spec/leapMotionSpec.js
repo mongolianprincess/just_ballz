@@ -1,7 +1,6 @@
 describe('Steering System:', function(){
 
   beforeEach(function() {
-    speed = 80;
     orb = { roll: function(a,b){},
             disconnect: function(){}
           };
