@@ -10,8 +10,13 @@ describe('JustBallz Controller', function(){
       console.log("hello");
     }));
 
-    it('initializes with an empty input field',function(){
-      expect(scope.connect).toBeUndefined();
+    it('it has a connect function',function(){
+      expect(scope.connect).toBeDefined();
     });
+
+    it('it has a connected function',function(){
+      expect(scope.connected).toBeDefined();
+    });
+
   });
 });
