@@ -7,45 +7,54 @@ var colliding = false;
 var x;
 var z;
 var arctan;
+var inDeadZone;
 var speed = 80;
-
-orb.connect(listen);
+var heading = 0;
 
 function handleRight(hand) {
-
-  moveSphero(hand);
 
   if (hand.grabStrength > 0.9) {
     orb.roll(0,0);
     orb.disconnect(function() {
     });
   }
+
+  moveSphero(hand);
 }
 
 function moveSphero(hand) {
 
-  calculateAngle(hand);
-
-  var inDeadZone = x > -40 && x < 30 && z > -20 && z < 30;
-  var upperLeftQuadrant = x < 0 && z < 0;
-  var lowerLeftQuadrant = x < 0 && z > 0;
-  var lowerRightQuadrant = x > 0 && z > 0;
-  var upperRightQuadrant = x > 0 && z < 0;
+  calculateHeading(hand);
 
   if (inDeadZone) {
     orb.roll(0,0);
   } else {
-    if (upperLeftQuadrant) { orb.roll(speed, (360 - arctan)); }
-    if (lowerLeftQuadrant) { orb.roll(speed, (180 + arctan)); }
-    if (lowerRightQuadrant) { orb.roll(speed, (180 - arctan)); }
-    if (upperRightQuadrant) { orb.roll(speed, arctan); }
+    orb.roll(speed, heading);
   }
 }
 
+function calculateHeading(hand) {
+
+  calculateAngle(hand);
+
+  var upperLeftQuadrant = x < 0 && z < 0;
+  var lowerLeftQuadrant = x < 0 && z > 0;
+  var lowerRightQuadrant = x > 0 && z > 0;
+  var upperRightQuadrant = x > 0 && z < 0;
+  inDeadZone = x > -40 && x < 30 && z > -20 && z < 30;
+
+  if (upperLeftQuadrant) { heading = 360 - arctan; }
+  if (lowerLeftQuadrant) { heading = 180 + arctan; }
+  if (lowerRightQuadrant) { heading = 180 - arctan; }
+  if (upperRightQuadrant) { heading = arctan; }
+}
+
 function calculateAngle(hand) {
+
   x = hand.palmPosition[0];
   z = hand.palmPosition[2];
   arctan = (Math.atan(Math.abs(x)/Math.abs(z))*180/Math.PI);
+
 }
 
 function listen() {
@@ -70,35 +79,13 @@ function listen() {
   orb.on("collision", function() {
     colliding = !colliding;
     counter += 1;
-    console.log(counter);
-    console.log("collision detected");
-    // console.log("  data:", data);
+    console.log("collisions: "+counter);
 
     if (colliding) {
       orb.color("red");
     } else {
       orb.color("purple");
     }
-
-    //
-    // var opts = {
-    //   lmode: 0x01,
-    //   lpower: 180,
-    //   rmode: 0x01,
-    //   rpower: 180
-    // };
-    //
-    // orb.setRawMotors(opts, function(err, data) {
-    //   console.log(err || "data: " + data);
-    // });
-    //
-    // setTimeout(function() {
-    //   orb.color("purple");
-    // }, 200);
-    //
-    // orb.setStabilization(1, function(err, data) {
-    //   console.log(err || "data: " + data);
-    // });
 
   });
 
@@ -131,3 +118,5 @@ function listen() {
   console.log('waiting for the leap motion to connect');
 
 }
+
+orb.connect(listen);
