@@ -1,14 +1,17 @@
-describe('JustBallzController', function(){
+describe('JustBallz Controller', function(){
+  describe('justBallzController',function(){
+    beforeEach(module('JustBallz'));
 
-  beforeEach(module('JustBallz'));
+    var ctrl,scope;
 
-  var ctrl;
+    beforeEach(inject(function($controller){
+      scope = {};
+      ctrl = $controller('JustBallzController', {$scope:scope});
+      console.log("hello");
+    }));
 
-  beforeEach(inject(function($controller){
-    ctrl = $controller('JustBallzController');
-  }));
-
-  it('initializes with an empty input field',function(){
-    expect(ctrl.orbName).toBeUndefined();
+    it('initializes with an empty input field',function(){
+      expect(scope.connect).toBeUndefined();
+    });
   });
 });
