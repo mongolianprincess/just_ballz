@@ -1,6 +1,6 @@
 var Leap = require("leapjs");
 var Sphero = require("sphero");
-var orb = Sphero("/dev/tty.Sphero-RGO-AMP-SPP", { timeout: 300});
+var orb;
 var controller = new Leap.Controller();
 var counter = 0;
 var colliding = false;
@@ -119,4 +119,10 @@ function listen() {
 
 }
 
-orb.connect(listen);
+function startGame() {
+  var name = process.argv[2];
+  orb = Sphero("/dev/tty.Sphero-"+name+"-AMP-SPP", { timeout: 300});
+  orb.connect(listen);
+}
+
+startGame();
