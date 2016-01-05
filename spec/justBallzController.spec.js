@@ -18,5 +18,9 @@ describe('JustBallz Controller', function(){
       expect(scope.connected).toBeDefined();
     });
 
+    it('it has a disconnect function', function(){
+      expect(scope.disconnect).toBeDefined();
+    });
+
   });
 });
