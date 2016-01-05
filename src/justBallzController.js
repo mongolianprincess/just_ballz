@@ -6,7 +6,7 @@ justBallz.controller('JustBallzController',['$scope', function($scope){
   };
 
   $scope.connected = function(){
-
+    $scope.viewPane = 3;
   };
 
   $scope.disconnect= function(){

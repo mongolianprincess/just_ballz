@@ -34,10 +34,16 @@ describe('JustBallz Controller', function(){
         expect(scope.viewPane).toEqual(3);
       });
     });
-    it('it has a disconnect function', function(){
-      expect(scope.disconnect).toBeDefined();
+
+    describe("#disconnect",function(){
+      it('it has a disconnect function', function(){
+        expect(scope.disconnect).toBeDefined();
+      });
+
+      it('changes the view variable when disconnected', function() {
+        scope.disconnect();
+        expect(scope.viewPane).toEqual(1);
+      });
     });
-
-
   });
 });
