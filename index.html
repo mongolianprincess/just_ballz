@@ -8,16 +8,25 @@
     <script src= "src/app.js"></script>
     <script src= "src/justBallzController.js"></script>
 </head>
-<body ng-controller="JustBallzController as orbCtrl">
-  <div class="orbConnection">
+<body ng-controller="JustBallzController">
+  <section ng-init="viewPane = 1">
+  <div ng-show="viewPane === 1">
     <form>
       <input type="text">
-      <button></button>
+      <button ng-click="connect()">Connect to your Sphero</button>
       <h1 ng-style="{'-webkit-transform': heading}">Hello World</h1>
       <h2>{{heading}}</h2>
-
     </form>
   </div>
+
+  <div ng-show="viewPane === 2">
+
+  </div>
+  <div ng-show="viewPane === 3">
+
+  </div>
+
+  </section>
 
 </body>
 </html>
