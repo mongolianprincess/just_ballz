@@ -1,21 +1,34 @@
 describe('Steering System:', function(){
 
-  // describe('#concatData', function(){
-  //   it('simplifies the data output from the leapmotion frame', function(){
-  //       expect(concatData('Hand', 'right')).toEqual('Hand: right');
-  //   });
-  // });
+  describe('#calculateHeading', function() {
 
-  describe('Upper Left Quadrant', function() {
-
-    beforeEach(function(){
-      var x = -30;
-      var z = -40;
+    beforeEach(function() {
+      var x, z, arctan, heading, inDeadZone;
     });
 
-    it('correctly translates palm position to a heading', function() {
-      var arctan = (Math.atan(Math.abs(x)/Math.abs(z))*180/Math.PI);
-
+    it('upperLeftQuadrant', function() {
+      var hand = { palmPosition: [-50, null, -40] };
+      calculateHeading(hand);
+      expect(heading).toEqual(308.6598082540901);
     });
+
+    it('lowerLeftQuadrant', function() {
+      var hand = { palmPosition: [-50, null, 40] };
+      calculateHeading(hand);
+      expect(heading).toEqual(231.34019174590992);
+    });
+
+    it('lowerRightQuadrant', function() {
+      var hand = { palmPosition: [50, null, 40] };
+      calculateHeading(hand);
+      expect(heading).toEqual(128.65980825409008);
+    });
+
+    it('upperRightQuadrant', function() {
+      var hand = { palmPosition: [50, null, -40] };
+      calculateHeading(hand);
+      expect(heading).toEqual(51.34019174590991);
+    });
+
   });
 });

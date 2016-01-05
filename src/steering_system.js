@@ -19,7 +19,6 @@ function handleRight(hand) {
     orb.disconnect(function() {
     });
   }
-
   moveSphero(hand);
 }
 
@@ -55,7 +54,6 @@ function calculateAngle(hand) {
   x = hand.palmPosition[0];
   z = hand.palmPosition[2];
   arctan = (Math.atan(Math.abs(x)/Math.abs(z))*180/Math.PI);
-
 }
 
 function listen() {
@@ -125,6 +123,7 @@ function listen() {
 function startGame() {
   var name = process.argv[2];
   orb = Sphero("/dev/tty.Sphero-"+name+"-AMP-SPP", { timeout: 300});
+  console.log(orb);
   orb.connect(listen);
 }
 
