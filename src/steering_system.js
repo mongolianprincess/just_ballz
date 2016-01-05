@@ -3,6 +3,7 @@ var Sphero = require("sphero");
 var orb;
 var controller = new Leap.Controller();
 var counter = 0;
+var collisionSystemActivated = false;
 var colliding = false;
 var x;
 var z;
@@ -73,21 +74,23 @@ function listen() {
     console.log("Finish Calibration");
   }, 10000);
 
-  orb.detectCollisions();
-  console.log("collision detection system activated");
+  if (collisionSystemActivated) {
+    orb.detectCollisions();
+    console.log("collision detection system activated");
 
-  orb.on("collision", function() {
-    colliding = !colliding;
-    counter += 1;
-    console.log("collisions: "+counter);
+    orb.on("collision", function() {
+      colliding = !colliding;
+      counter += 1;
+      console.log("collisions: "+counter);
 
-    if (colliding) {
-      orb.color("red");
-    } else {
-      orb.color("purple");
-    }
+      if (colliding) {
+        orb.color("red");
+      } else {
+        orb.color("purple");
+      }
 
-  });
+    });
+  }
 
   controller.on('connect', function() {
     console.log('connected to leap motion');
