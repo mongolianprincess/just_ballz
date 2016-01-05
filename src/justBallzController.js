@@ -10,6 +10,6 @@ justBallz.controller('JustBallzController',['$scope', function($scope){
   };
 
   $scope.disconnect= function(){
-
+    $scope.viewPane = 1;
   };
 }]);
