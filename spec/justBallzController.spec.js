@@ -7,7 +7,6 @@ describe('JustBallz Controller', function(){
     beforeEach(inject(function($controller){
       scope = {};
       ctrl = $controller('JustBallzController', {$scope:scope});
-      console.log("hello");
     }));
 
     describe('#connect', function() {
@@ -18,7 +17,7 @@ describe('JustBallz Controller', function(){
 
       it('changes the view variable', function() {
         scope.connect();
-        expect(scope.viewPane).toEqual(2);
+        expect(scope.viewPane).toEqual(3);
       });
 
     });
@@ -31,7 +30,7 @@ describe('JustBallz Controller', function(){
 
       it('changes the view variable', function(){
         scope.connected();
-        expect(scope.viewPane).toEqual(3);
+        expect(scope.viewPane).toEqual(4);
       });
     });
 
