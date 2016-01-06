@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="JustBallz">
+
 <head>
   <meta charset="UTF-8">
   <title>Just Ballz</title>
@@ -9,26 +10,18 @@
     <script src= "src/justBallzController.js"></script>
     <script src= "src/welcomeDirective.js"></script>
     <script src= "src/connectDirective.js"></script>
-
+    <script src= "src/connectingDirective.js"></script>
+    <script src= "src/connectedDirective.js"></script>
 </head>
-<body ng-controller="JustBallzController">
-  <section>
+  <body ng-controller="JustBallzController">
 
-  <welcome-page></welcome-page>
+    <welcome-page></welcome-page>
 
-  <connect-page></connect-page>
+    <connect-page></connect-page>
 
-  <div ng-show="isInView(3)">
-    <h1>Connecting to your sphero please place your right hand over the LeapMotion</h1>
-    <button ng-click="connected()">Button to be Deleted</button>
-  </div>
+    <connecting-page></connecting-page>
 
-  <div ng-show="isInView(4)">
-    <h1>Your sphero is connected</h1>
-    <button ng-click="disconnect()">Button to be Deleted</button>
-  </div>
+    <connected-page></connected-page>
 
-  </section>
-
-</body>
+  </body>
 </html>
