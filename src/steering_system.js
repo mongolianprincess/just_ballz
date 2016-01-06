@@ -3,7 +3,7 @@ var Sphero = require("sphero");
 var orb = Sphero("/dev/tty.Sphero-RGO-AMP-SPP", { timeout: 300});
 var controller = new Leap.Controller();
 
-orb.connect(listen);
+// orb.connect(listen);
 
 function handleRight(hand) {
   var x = hand.palmPosition[0];
