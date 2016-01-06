@@ -9,6 +9,11 @@ describe('JustBallz Controller', function(){
       ctrl = $controller('JustBallzController', {$scope:scope});
     }));
 
+    it('starts with the default view shown',function(){
+      expect(scope.viewPane).toBeDefined();
+      expect(scope.isInView(scope.viewPane)).toBeTruthy();
+    });
+
     describe('#connect', function() {
 
       it('it has a connect function',function(){

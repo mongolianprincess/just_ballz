@@ -11,25 +11,25 @@
 
 </head>
 <body ng-controller="JustBallzController">
-  <section ng-init="viewPane = 1" ng-controller="ViewController as viewCtrl">
-  <div ng-show="viewPane === 1">
+  <section>
+  <div ng-show="isInView()">
     <form>
       <input type="text" ng-model="name">
       <button ng-click="submit()">Connect to your Sphero</button>
     </form>
   </div>
 
-  <div ng-show="viewPane === 2">
+  <div ng-show="isInView()">
     <h1>Welcome {{orbName}}!</h1>
     <button ng-click="connect()">Connect to your Sphero</button>
   </div>
 
-  <div ng-show="viewPane === 3">
+  <div ng-show="isInView()">
     <h1>Connecting to your sphero please place your right hand over the LeapMotion</h1>
     <button ng-click="connected()">Button to be Deleted</button>
   </div>
 
-  <div ng-show="viewPane === 4">
+  <div ng-show="isInView()">
     <h1>Your sphero is connected</h1>
     <button ng-click="disconnect()">Button to be Deleted</button>
   </div>
