@@ -1,10 +1,50 @@
-
 <h2>Just Ballz</h2>
 <div ng-show="isInView(1)">
   <body>
   <form>
-    <input type="text" ng-model="name">
-    <button ng-click="submit()">Enter Your Sphero's Name</button>
+    <div id="wrapper">
+    <input id="textField" type="text" ng-model="name">
+    <button type="button" class="btn btn-warning btn-med" ng-click="submit()">Enter Your Sphero's Name</button>
+  </div>
   </form>
   </body>
 </div>
+
+<style>
+
+  #textField {
+    text-align: center;
+    padding: 5px;
+    padding-left: 40px;
+    background-color: #F5EE9E;
+    -webkit-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -moz-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -o-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -ms-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    box-shadow: 1px 1px 2px 0 #CCCCCC;
+    margin-bottom: 16px;
+    -webikt-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+
+  #enterSpoName {
+    background-color: #F49E4C;
+  }
+
+  #wrapper {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    top: 10px;
+    left: 50%;
+    margin-left: -80px;
+  }
+
+  form {
+    position: relative;
+    width: 40%;
+    height: 120px;
+    margin: 20px auto;
+  }
+</style>
