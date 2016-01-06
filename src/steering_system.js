@@ -1,16 +1,15 @@
 var Leap = require("leapjs");
 var Sphero = require("sphero");
-var orb;
-var controller = new Leap.Controller();
-var counter = 0;
+
 var collisionSystemActivated = false;
 var colliding = false;
-var x;
-var z;
-var arctan;
-var inDeadZone;
 var speed = 80;
 var heading = 0;
+var counter = 0;
+var orb, x, z, arctan, inDeadZone;
+
+var controller = new Leap.Controller();
+
 
 function handleRight(hand) {
 
