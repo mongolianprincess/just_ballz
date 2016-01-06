@@ -7,29 +7,23 @@
     <script src= "bower_components/angular-resource/angular-resource.js"></script>
     <script src= "src/app.js"></script>
     <script src= "src/justBallzController.js"></script>
-    <script src= "src/viewController.js"></script>
+    <script src= "src/welcomeDirective.js"></script>
+    <script src= "src/connectDirective.js"></script>
 
 </head>
 <body ng-controller="JustBallzController">
   <section>
-  <div ng-show="isInView()">
-    <form>
-      <input type="text" ng-model="name">
-      <button ng-click="submit()">Connect to your Sphero</button>
-    </form>
-  </div>
 
-  <div ng-show="isInView()">
-    <h1>Welcome {{orbName}}!</h1>
-    <button ng-click="connect()">Connect to your Sphero</button>
-  </div>
+  <welcome-page></welcome-page>
 
-  <div ng-show="isInView()">
+  <connect-page></connect-page>
+
+  <div ng-show="isInView(3)">
     <h1>Connecting to your sphero please place your right hand over the LeapMotion</h1>
     <button ng-click="connected()">Button to be Deleted</button>
   </div>
 
-  <div ng-show="isInView()">
+  <div ng-show="isInView(4)">
     <h1>Your sphero is connected</h1>
     <button ng-click="disconnect()">Button to be Deleted</button>
   </div>
