@@ -6,17 +6,34 @@
           <button onclick="orb.connect(listen)" class="btn btn-warning btn-med center-block" ng-click="connect()">Connect to your Sphero</button>
         </div>
       </form>
-
+<div class="container">
+      <div id="image_wrapper" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
       <div class="images_hz">
-
+          <div class="well">
+            <figure>
           <img src="../public/img/Calibrate.gif" alt="Calibrate">
+          <figcaption> How to calibrate... </figcaption>
+        </figure>
+          </div>
 
+          <div class="well">
+            <figure>
           <img src="../public/img/Position.gif" alt="Position">
+          <figcaption> Where to position your hand </figcaption>
+        </figure>
+          </div>
 
+          <div class="well">
           <img src="../public/img/Move.gif" alt="Move">
+          <figcaption> Move your hand in a circular motion </figcaption>
+          </div>
 
+          <div class="well">
           <img src="../public/img/Disconnect.gif" alt="Disconnect">
-
+          <figcaption> To disconnect, make a fist </figcaption>
+        </div>
+</div>
+        </div>
       </div>
 
   </body>
@@ -33,16 +50,26 @@
     height: 120px;
     margin: 20px auto;
   }
+#image_wrapper {
 
+  width: 1200px;
+  position: center;
+}
+
+.well {
+  background-color: #5AB1BB;
+  margin: 10px 10px;
+}
     .images_hz {
     display: flex;
     min-width: ;
     min-height: ;
     }
-    .img {
+    .images_hz img {
       height: 0%;
       width: 100%;
       margin: 0 5px;
+      overflow: scroll;
     }
 
 </style>
