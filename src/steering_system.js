@@ -7,7 +7,7 @@ var connected = false;
 var speed = 80;
 var heading = 0;
 var counter = 0;
-var orb, x, z, arctan, inDeadZone;
+var orb, x, z, arctan, inDeadZone, orbName;
 
 var controller = new Leap.Controller();
 
@@ -123,8 +123,12 @@ function listen() {
 }
 
 function startGame() {
-  console.log('got here');
-  orb = Sphero("/dev/tty.Sphero-RGO-AMP-SPP");
+  console.log(orbName);
+  orb = Sphero("/dev/tty.Sphero-" + orbName + "-AMP-SPP");
   console.log(orb);
   orb.connect(listen);
+}
+
+function setName(){
+  orbName = document.getElementById('orbName').value;
 }
