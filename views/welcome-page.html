@@ -3,9 +3,21 @@
   <body>
   <form>
     <div id="wrapper">
-    <input id="textField" type="text" ng-model="name">
-    <button type="button" class="btn btn-warning btn-med" ng-click="submit()">Enter Your Sphero's Name</button>
+    <input id="textField" type="text" ng-model="name" placeholder="Enter Sphero 3 Colour Name">
+    <select id="orbColor">
+          <option>Select colour</option>
+          <option>red</option>
+          <option>blue</option>
+          <option>yellow</option>
+          <option>green</option>
+          <option>purple</option>
+          <option>peru</option>
+          <option>teal</option>
+        </select>
+    <button type="button" class="btn btn-warning btn-med" ng-click="submit()">Submit Your Sphero</button>
   </div>
+  <!-- <div id="wrapper" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+  </div> -->
   </form>
     <p>
       <img class="diagram" src="../public/img/Welcome_Diagrams_final.png" >
@@ -16,9 +28,10 @@
 <style>
 
   #textField {
-    text-align: center;
+    text-align: left;
     padding: 5px;
-    padding-left: 40px;
+    padding-left: 5px;
+    width: 200px;
     background-color: #F5EE9E;
     -webkit-box-shadow: 1px 1px 2px 0 #CCCCCC;
     -moz-box-shadow: 1px 1px 2px 0 #CCCCCC;
@@ -29,19 +42,31 @@
     -webikt-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-  }s
+  }
+  #orbColor {
+    text-align: center;
+    padding: 5px;
+    padding-left: 35px;
+    background-color: #F5EE9E;
+    -webkit-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -moz-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -o-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -ms-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    box-shadow: 1px 1px 2px 0 #CCCCCC;
+    margin-bottom: 16px;
+    -webikt-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
 
   #enterSpoName {
     background-color: #F49E4C;
   }
 
   #wrapper {
-    position: absolute;
-    width: 200px;
-    height: 100px;
-    top: 10px;
-    left: 50%;
-    margin-left: -80px;
+    width: 700px;
+    padding-left: 100px;
+    padding-top: 50px;
   }
   img.diagram {
     display: block;
