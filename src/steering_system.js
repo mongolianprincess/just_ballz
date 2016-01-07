@@ -3,7 +3,7 @@ var Sphero = require("sphero");
 
 var collisionSystemActivated = false;
 var colliding = false;
-var connected = false;
+var connected;
 var speed = 80;
 var heading = 0;
 var counter = 0;
@@ -57,23 +57,21 @@ function calculateAngle(hand) {
   arctan = (Math.atan(Math.abs(x)/Math.abs(z))*180/Math.PI);
 }
 
-function listen() {
-
-  connected = true;
-  orb.color("orange");
-
-  console.log("Start Calibration");
+function calibrateSphero(){
   orb.setBackLed(255);
   orb.setStabilization(0);
 
   setTimeout(function() {
+    orb.color("orange");
     orb.setHeading(0);
     orb.setBackLed(0);
     orb.setStabilization(1);
-
-    console.log("Finish Calibration");
+    connected = true;
   }, 10000);
+}
 
+function listen() {
+  calibrateSphero();
   if (collisionSystemActivated) {
     orb.detectCollisions();
     console.log("collision detection system activated");
@@ -123,12 +121,15 @@ function listen() {
 }
 
 function startGame() {
-  console.log(orbName);
   orb = Sphero("/dev/tty.Sphero-" + orbName + "-AMP-SPP");
-  console.log(orb);
   orb.connect(listen);
 }
 
 function setName(){
   orbName = document.getElementById('orbName').value;
+  setConnected();
+}
+
+function setConnected(){
+  connected = 'false';
 }
