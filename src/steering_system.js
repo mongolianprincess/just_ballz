@@ -1,6 +1,7 @@
 var Leap = require("leapjs");
 var Sphero = require("sphero");
 
+
 var collisionSystemActivated = false;
 var colliding = false;
 var connected;
@@ -10,6 +11,9 @@ var counter = 0;
 var orb, x, z, arctan, inDeadZone, orbName;
 
 var controller = new Leap.Controller();
+
+
+
 
 
 function handleRight(hand) {
@@ -131,5 +135,5 @@ function setName(){
 }
 
 function setConnected(){
-  connected = 'false';
+  connected = false;
 }
