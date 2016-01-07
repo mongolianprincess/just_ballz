@@ -8,7 +8,7 @@ var connected;
 var speed = 80;
 var heading = 0;
 var counter = 0;
-var orb, x, z, arctan, inDeadZone, orbName;
+var orb, x, z, arctan, inDeadZone, orbName, orbColor, hand;
 
 var controller = new Leap.Controller();
 
@@ -23,8 +23,9 @@ function handleRight(hand) {
     orb.roll(0,0);
     orb.disconnect(function() {
     });
-  }
+  } else {
   moveSphero(hand);
+}
 }
 
 function moveSphero(hand) {
@@ -64,14 +65,14 @@ function calculateAngle(hand) {
 function calibrateSphero(){
   orb.setBackLed(255);
   orb.setStabilization(0);
-
+  orb.color('orange');
   setTimeout(function() {
-    orb.color("orange");
+    orb.color(orbColor);
     orb.setHeading(0);
     orb.setBackLed(0);
     orb.setStabilization(1);
     connected = true;
-  }, 10000);
+  }, 5000);
 }
 
 function listen() {
@@ -101,7 +102,7 @@ function listen() {
       for (var i = 0, len = frame.hands.length; i < len; i++) {
         hand = frame.hands[i];
         if(hand){
-          if (hand.type == 'right') {
+          if (hand.type == 'right' && connected === true) {
             handleRight(hand);
           }
         }
@@ -129,11 +130,21 @@ function startGame() {
   orb.connect(listen);
 }
 
+
+function setup(){
+  setName();
+  setColor();
+  setConnected();
+
+}
 function setName(){
   orbName = document.getElementById('orbName').value;
-  setConnected();
 }
 
 function setConnected(){
   connected = false;
+}
+
+function setColor(){
+  orbColor = document.getElementById('orbColor').value;
 }

@@ -1,8 +1,81 @@
-<div ng-show="isInView(1)">
-  <form>
-    <input id="orbName" type="text" ng-model="name">
-    <button onclick="setName()" ng-click="submit()">Connect to your Sphero</button>
-  </form>
-  {{connected}}
 
+<h2>Just Ballz</h2>
+<div ng-show="isInView(1)">
+  <body>
+    <form>
+
+        <input id="orbName" class="wrapper" type="text" ng-model="name" placeholder="Enter Sphero 3 Colour Name">
+        <select id="orbColor">
+              <option>Select colour</option>
+              <option>red</option>
+              <option>blue</option>
+              <option>yellow</option>
+              <option>green</option>
+              <option>purple</option>
+              <option>peru</option>
+              <option>teal</option>
+        </select>
+            <button type="button" class="btn btn-warning btn-med" onclick="setup()" ng-click="submit()">Enter Your Sphero's Name</button>
+
+    </form>
+    <p>
+      <img class="diagram" src="../public/img/Welcome_Diagrams_final.png" >
+    </p>
+  </body>
 </div>
+
+<style>
+  #orbName {
+       text-align: left;
+       padding: 5px;
+       padding-left: 5px;
+       width: 200px;
+       background-color: #F5EE9E;
+       -webkit-box-shadow: 1px 1px 2px 0 #CCCCCC;
+       -moz-box-shadow: 1px 1px 2px 0 #CCCCCC;
+       -o-box-shadow: 1px 1px 2px 0 #CCCCCC;
+       -ms-box-shadow: 1px 1px 2px 0 #CCCCCC;
+       box-shadow: 1px 1px 2px 0 #CCCCCC;
+       margin-bottom: 16px;
+       -webikt-border-radius: 3px;
+       -moz-border-radius: 3px;
+       border-radius: 3px;
+     }
+     #orbColor {
+       margin-top: 16px;
+       text-align: center;
+       padding: 5px;
+       padding-left: 35px;
+       background-color: #F5EE9E;
+       -webkit-box-shadow: 1px 1px 2px 0 #CCCCCC;
+       -moz-box-shadow: 1px 1px 2px 0 #CCCCCC;
+       -o-box-shadow: 1px 1px 2px 0 #CCCCCC;
+       -ms-box-shadow: 1px 1px 2px 0 #CCCCCC;
+       box-shadow: 1px 1px 2px 0 #CCCCCC;
+       margin-bottom: 16px;
+       -webikt-border-radius: 3px;
+       -moz-border-radius: 3px;
+       border-radius: 3px;
+     }
+     #enterSpoName {
+       background-color: #F49E4C;
+     }
+     #wrapper {
+       width: 300px;
+       padding-top: 50px;
+       text-align: center;
+     }
+     img.diagram {
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       height: 400px;
+     }
+     form {
+       position: relative;
+       width: 250px;
+       text-align: center;
+       height: 120px;
+       margin: 20px auto;
+     }
+   </style>
