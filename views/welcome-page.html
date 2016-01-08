@@ -4,9 +4,9 @@
   <body>
     <form>
 
-        <input id="orbName" class="wrapper" type="text" ng-model="name" placeholder="Enter Sphero 3 Colour Name">
+        <input id="orbName" class="wrapper" type="text" ng-model="name" placeholder="Sphero 3 Letter Name">
         <select id="orbColor">
-              <option>Select colour</option>
+              <option>Select Sphero Colour</option>
               <option>red</option>
               <option>blue</option>
               <option>yellow</option>
@@ -15,7 +15,7 @@
               <option>peru</option>
               <option>teal</option>
         </select>
-            <button type="button" class="btn btn-warning btn-med" onclick="setup()" ng-click="submit()">Enter Your Sphero's Name</button>
+            <button type="button" class="btn btn-warning btn-med" onclick="setup()" ng-click="submit()">Enter Sphero Details</button>
 
     </form>
     <p>
@@ -36,12 +36,12 @@
        -o-box-shadow: 1px 1px 2px 0 #CCCCCC;
        -ms-box-shadow: 1px 1px 2px 0 #CCCCCC;
        box-shadow: 1px 1px 2px 0 #CCCCCC;
-       margin-bottom: 16px;
        -webikt-border-radius: 3px;
        -moz-border-radius: 3px;
        border-radius: 3px;
      }
      #orbColor {
+       width: 200px;
        margin-top: 16px;
        text-align: center;
        padding: 5px;
@@ -69,13 +69,17 @@
        display: block;
        margin-left: auto;
        margin-right: auto;
-       height: 400px;
+       height: 350px;
+       width: 1200px;
      }
      form {
        position: relative;
-       width: 250px;
+       width: 250px, !important;
        text-align: center;
        height: 120px;
        margin: 20px auto;
+     }
+     .btn{
+       width: 200px;
      }
    </style>

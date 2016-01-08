@@ -1,6 +1,11 @@
 <div ng-show="isInView(4)">
-  <h1>Your sphero is connected</h1>
-  <button class="btn btn-warning btn-med" ng-click="disconnect()">Reset</button>
+
+  <form>
+    <div>
+        <h1>Your sphero is connected</h1>
+      <button class="btn btn-warning btn-med center-block" ng-click="disconnect()">Reset</button>
+  </div>
+</form>
   <div class="container">
     <h1>To Disconnect</h1>
     <div id="image_wrapper" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -25,7 +30,7 @@
 p {
   text-align: center;
 }
-
+gi
   #image_wrapper {
     width: 1200px;
     position: center;
@@ -51,5 +56,12 @@ p {
         margin: 0 5px;
         overflow: scroll;
         padding-bottom: 10px;
+      }
+      form {
+        position: relative;
+        width: 400px;
+        height: 120px;
+        margin: 20px auto;
+        padding-bottom: -50px;
       }
   </style>
