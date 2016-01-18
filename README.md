@@ -51,3 +51,7 @@ How To Use
 - When you would like to disconnect from the Sphero close your hand into a fist.
 
 - Once you have disconnected click the reset button to use the application again.
+
+Contributions
+-------------
+Contributions and issues are very welcome. To contribute simply fork this directory make your changes and then open a pull request.
