@@ -34,7 +34,7 @@ How To Use
 
 - When you are happy click connect.
 
-![conecting page](readmeImages/connectingPage.png)
+![conecting page](readmeImages/ConnectingPage.png)
 
 - After a few seconds your Sphero will turn orange and its backlight will turn on. This backlight denotes Sphero's orientation.
 
