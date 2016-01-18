@@ -4,7 +4,9 @@ JUST BALLZ
 
 A project to allow gesture based movement of a robot by integrating [Sphero robots](www.sphero.com) and [Leap Motion](www.leapmotion.com) into a native app for Mac OSX.
 
-This application is still in Alpha and as such there are a number of bugs present that can cause hiccups in usage.
+The app was built using a Javascript stack. With the technologies of note including: Node, Angular, Leap, Sphero, Serial Port and Node Webkit.
+
+This application is still in Alpha and as such there are a number of bugs present that can cause hiccups in usage please report any unexpected behaviour using github issues.
 
 Continuous Integration
 --------------------------
@@ -34,7 +36,7 @@ How To Use
 
 - When you are happy click connect.
 
-![conecting page](readmeImages/ConnectingPage.png)
+![connecting page](readmeImages/ConnectingPage.png)
 
 - After a few seconds your Sphero will turn orange and its backlight will turn on. This backlight denotes Sphero's orientation.
 
@@ -42,7 +44,7 @@ How To Use
 
 - After a few further seconds the Sphero will turn the color you selected and the screen will change.
 
-![]()
+![connected page](readmeImages/connectedPage.png)
 
 - Place your hand above the LeapMotion and move your hand in the direction that you wish your Sphero ball to roll.
 
