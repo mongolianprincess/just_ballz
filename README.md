@@ -4,6 +4,8 @@ JUST BALLZ
 
 A project to allow gesture based movement of a robot by integrating [Sphero robots](www.sphero.com) and [Leap Motion](www.leapmotion.com) into a native app for Mac OSX.
 
+This application is still in Alpha and as such there are a number of bugs present that can cause hiccups in usage.
+
 Continuous Integration
 --------------------------
 Master: ![Master branch](https://travis-ci.org/ALRW/just_ballz.svg?branch=master)
@@ -16,7 +18,7 @@ As a pre-requisite for running this app the following are required:
 - Sphero
 - Leap Motion
 
-You can download the alpha version of the App [here]().
+You can download the Alpha version of the App [here](https://www.dropbox.com/s/dli2elziuqux9q3/Just%20Ballz.app.zip?dl=0).
 
 How To Use
 ----------
@@ -24,18 +26,28 @@ How To Use
 
 ![landingPage](readmeImages/landingPage.png)
 
-- Here follow the instructions to enter your Sphero's 3 letter name and select the color that you would like your sphero to be while you are using it and then click "Enter Sphero Details".
+- Follow the instructions to enter your Sphero's 3 letter name, select a color for it and then click "Enter Sphero Details".
 
 - This will take you through to the Connection page where you can review instructions on how to control your Sphero.
 
 ![instructionPage](readmeImages/instructionsPage.png)
 
+- When you are happy click connect.
 
+![conecting page](readmeImages/connectingPage.png)
 
+- After a few seconds your Sphero will turn orange and its backlight will turn on. This backlight denotes Sphero's orientation.
 
+- Place your Sphero down and orientate it using the backlight as a guide.
 
-Waffle Metrics
---------------
-[![Stories in Ready](https://badge.waffle.io/ALRW/just_ballz.png?label=ready&title=Ready)](https://waffle.io/ALRW/just_ballz)
+- After a few further seconds the Sphero will turn the color you selected and the screen will change.
 
-[![Throughput Graph](https://graphs.waffle.io/ALRW/just_ballz/throughput.svg)](https://waffle.io/ALRW/just_ballz/metrics)
+![]()
+
+- Place your hand above the LeapMotion and move your hand in the direction that you wish your Sphero ball to roll.
+
+- To stop your Sphero simply move your palm directly over the LeapMotion.
+
+- When you would like to disconnect from the Sphero close your hand into a fist.
+
+- Once you have disconnected click the reset button to use the application again.
